@@ -34,6 +34,7 @@ function isCollidingRectangle(rectangle1, rectangle2)
     if not(rectangle1 == rectangle2) then
       if distancex <= (rectangle2.w + rectangle1.w) * 0.5 and distancey <= (rectangle2.h + rectangle1.h) * 0.5 then return true end
     end
+    return false
 end
 
 function checkCollisions(rectangle, rectanglesCollection)
