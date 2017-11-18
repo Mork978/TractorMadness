@@ -15,7 +15,7 @@ enemicClass = {
     end
 
     enemic.speed = 150
-
+    enemic.colider = rectangleClass:new(x, y, enemic.imageFile:getWidth(), enemic.imageFile:getHeight())
     return enemic;
   end
 }
