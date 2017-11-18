@@ -9,17 +9,17 @@ tractorClass = {
     tractor.imageFile = love.graphics.newImage(tractor.imageFilename)
     tractor.pos = {x = x, y = y}
     tractor.offset = {x = tractor.imageFile:getWidth() / 2, y = tractor.imageFile:getHeight() / 2}
-    tractor.forwardVec = {0, -1}
+    tractor.forwardVec = {x = 0, y = 1}
     -- Methods
     tractor.draw = self.draw
     tractor.move = self.move
     return tractor
   end,
-  
+
   draw = function(self)
     love.graphics.draw(self.imageFile, self.pos.x - self.offset.x, self.pos.y - self.offset.y)
   end,
-  
+
   move = function(self, w, h, dt) -- This function moves tractor object in window, by its position (x, y)
 
     local moveDirections = {
@@ -39,6 +39,6 @@ tractorClass = {
       end
     end
   end
-    
+
 
 }
