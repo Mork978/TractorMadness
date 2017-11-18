@@ -4,7 +4,7 @@ vacaClass = {
     local enemic = {}
 
     --Properties
-    enemic.imageFilename = "Textures/placeholder.jpg"
+    enemic.imageFilename = "Textures/placeholder_vaca.png"
     enemic.imageFile = love.graphics.newImage(enemic.imageFilename)
     enemic.pos = {x = x, y = y}
     enemic.offset = {
