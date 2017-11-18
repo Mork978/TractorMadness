@@ -9,24 +9,27 @@ tractorClass = {
     tractor.imageFile = love.graphics.newImage(tractor.imageFilename)
     tractor.pos = {x = x, y = y}
     tractor.offset = {x = tractor.imageFile:getWidth() / 2, y = tractor.imageFile:getHeight() / 2}
-    tractor.forwardVec = {x = 0, y = 1}
+    tractor.forwardVec = {x = 0, y = -1}
+    tractor.colider = rectangleClass:new(tractor.pos.x, tractor.pos.y, tractor.imageFile:getWidth(), tractor.imageFile:getHeight())
     -- Methods
     tractor.draw = self.draw
     tractor.move = self.move
+
     return tractor
   end,
 
   draw = function(self)
     love.graphics.draw(self.imageFile, self.pos.x - self.offset.x, self.pos.y - self.offset.y)
+    self.colider:draw()
   end,
 
   move = function(self, w, h, dt) -- This function moves tractor object in window, by its position (x, y)
 
     local moveDirections = {
-      right = {x = 1, y = 0},
-      left = {x = -1, y = 0},
-      up = {x = 0, y = -1},
-      down = {x = 0, y = 1}
+      d = {x = 1, y = 0},
+      a = {x = -1, y = 0},
+      w = {x = 0, y = -1},
+      s = {x = 0, y = 1}
     }
     for direction, forwardVec in pairs (moveDirections) do
       if love.keyboard.isDown(direction) then
@@ -38,6 +41,7 @@ tractorClass = {
         self.pos.y = clamp(self.pos.y, self.offset.y, h - self.offset.y) -- We clamp y values according to window dimensions
       end
     end
+    self.colider.pos = self.pos
   end
 
 
