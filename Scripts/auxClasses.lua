@@ -109,3 +109,26 @@ animationClass = {
 
   end
 }
+
+rectangleClass = {
+  new = function(self, x, y, w, h)
+    local rectangle = {}
+    -- Properties    
+    
+    rectangle.pos = {x = x, y = y}    
+    rectangle.w = w
+    rectangle.h = h
+    rectangle.offset = {x = w / 2, y = h / 2}  
+    rectangle.imageFilename = "Textures/placeholder.jpg"
+    rectangle.imageFile = love.graphics.newImage(rectangle.imageFilename)
+    --Methods
+    rectangle.draw = self.draw
+    -- Return asteroid object
+    return rectangle
+  end,
+  
+  draw = function(self)
+    love.graphics.draw(self.imageFile, self.pos.x - self.offset.x, self.pos.y - self.offset.y)
+      
+  end
+}
