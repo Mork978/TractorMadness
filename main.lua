@@ -19,16 +19,14 @@ local gameEvent -- Game events variable
 
 function updateGameStates(gameEvent)
 
- 
+
 end
 
-function love.load() 
-
-
+function love.load()
 
   w, h = love.graphics.getDimensions() -- Sets w,h to window dimensions
 
- 
+
 end
 
 
