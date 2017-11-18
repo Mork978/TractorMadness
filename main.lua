@@ -37,6 +37,8 @@ end
 
 
 function love.draw()
+
   tractor:draw()
+
 
 end
